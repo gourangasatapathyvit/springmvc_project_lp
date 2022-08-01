@@ -1,13 +1,15 @@
 package jbr.springmvc.model;
 
 public class newProposal {
+	private int id;
+
 	private String firstName;
 	private String lastName;
 	private String DOB;
 	private String email;
-	private int contactNumber;
+	private String contactNumber;
 	private String gender;
-	private String isConsume;
+	private String consume;
 	private int annualIncome;
 	private String policyType;
 	private String ageOfInsurance;
@@ -17,19 +19,30 @@ public class newProposal {
 		// TODO Auto-generated constructor stub
 	}
 
-	public newProposal(String firstName, String lastName, String dOB, String email, int contactNumber, String gender,
-			String isConsume, int annualIncome, String policyType, String ageOfInsurance) {
+
+	public newProposal(int id, String firstName, String lastName, String dOB, String email, String contactNumber,
+			String gender, String consume, int annualIncome, String policyType, String ageOfInsurance) {
 		super();
+		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		DOB = dOB;
 		this.email = email;
 		this.contactNumber = contactNumber;
 		this.gender = gender;
-		this.isConsume = isConsume;
+		this.consume = consume;
 		this.annualIncome = annualIncome;
 		this.policyType = policyType;
 		this.ageOfInsurance = ageOfInsurance;
+	}
+
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getFirstName() {
@@ -64,11 +77,11 @@ public class newProposal {
 		this.email = email;
 	}
 
-	public int getContactNumber() {
+	public String getContactNumber() {
 		return contactNumber;
 	}
 
-	public void setContactNumber(int contactNumber) {
+	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
 	}
 
@@ -80,12 +93,12 @@ public class newProposal {
 		this.gender = gender;
 	}
 
-	public String isConsume() {
-		return isConsume;
+	public String getConsume() {
+		return consume;
 	}
 
-	public void setConsume(String isConsume) {
-		this.isConsume = isConsume;
+	public void setConsume(String consume) {
+		this.consume = consume;
 	}
 
 	public int getAnnualIncome() {
@@ -114,10 +127,10 @@ public class newProposal {
 
 	@Override
 	public String toString() {
-		return "newProposal [firstName=" + firstName + ", lastName=" + lastName + ", DOB=" + DOB + ", email=" + email
-				+ ", contactNumber=" + contactNumber + ", gender=" + gender + ", isConsume=" + isConsume
-				+ ", annualIncome=" + annualIncome + ", policyType=" + policyType + ", ageOfInsurance=" + ageOfInsurance
-				+ "]";
+		return "newProposal [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", DOB=" + DOB
+				+ ", email=" + email + ", contactNumber=" + contactNumber + ", gender=" + gender + ", consume="
+				+ consume + ", annualIncome=" + annualIncome + ", policyType=" + policyType + ", ageOfInsurance="
+				+ ageOfInsurance + "]";
 	}
 
 }

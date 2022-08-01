@@ -8,5 +8,5 @@ public interface ProposalDao {
 	int register(newProposal newProposal);
 
 	List<newProposal> queryAllUser();
-	void deleteNewProposals(String firstName);
+	void deleteNewProposals(int id);
 }

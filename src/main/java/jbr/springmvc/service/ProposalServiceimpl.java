@@ -23,8 +23,8 @@ public class ProposalServiceimpl implements ProposalService {
 	}
 
 	@Override
-	public void deleteNewProposals(String firstName) {
-		proposalDao.deleteNewProposals(firstName);
+	public void deleteNewProposals(int id) {
+		proposalDao.deleteNewProposals(id);
 		
 	}
 

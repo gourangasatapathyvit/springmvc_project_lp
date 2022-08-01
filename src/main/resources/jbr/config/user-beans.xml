@@ -14,6 +14,7 @@
 
 	<bean id="userService"
 		class="jbr.springmvc.service.UserServiceImpl" />
+		
 	<bean id="userDao" class="jbr.springmvc.dao.UserDaoImpl" />
 
 	<bean id="proposalService" class="jbr.springmvc.service.ProposalServiceimpl" />

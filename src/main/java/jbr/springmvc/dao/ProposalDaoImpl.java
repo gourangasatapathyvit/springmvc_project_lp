@@ -22,25 +22,26 @@ public class ProposalDaoImpl implements ProposalDao {
 
 	@Override
 	public int register(newProposal newProposal) {
-		String sql = "insert into proposal values(?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into proposal(firstName,lastName,DOB,email,contactNumber,gender,consume,annualIncome,policyType,ageOfInsurance) values(?,?,?,?,?,?,?,?,?,?)";
 		return jdbcTemplate.update(sql,
 				new Object[] { newProposal.getFirstName(), newProposal.getLastName(), newProposal.getDOB(),
 						newProposal.getEmail(), newProposal.getContactNumber(), newProposal.getGender(),
-						newProposal.isConsume(), newProposal.getAnnualIncome(), newProposal.getPolicyType(),
+						newProposal.getConsume(), newProposal.getAnnualIncome(), newProposal.getPolicyType(),
 						newProposal.getAgeOfInsurance() });
 
 	}
 
 	public List<newProposal> queryAllUser() {
-		String sql = "select * from proposal";
+		String sql = "select * from proposal order by id asc";
 		List<newProposal> newProposals = jdbcTemplate.query(sql, new newProposalMapper());
 		return newProposals;
 	}
+	
 
 	@Override
-	public void deleteNewProposals(String firstName) {
-		String sql = "DELETE FROM proposal WHERE firstName = ?";
-		jdbcTemplate.update(sql, firstName);
+	public void deleteNewProposals(int id) {
+		String sql = "DELETE FROM proposal WHERE id = ?";
+		jdbcTemplate.update(sql, id);
 	}
 
 }
@@ -49,14 +50,14 @@ class newProposalMapper implements RowMapper<newProposal> {
 
 	public newProposal mapRow(ResultSet rs, int arg1) throws SQLException {
 		newProposal newProposal = new newProposal();
-
+		newProposal.setId(rs.getInt("id"));
 		newProposal.setFirstName(rs.getString("firstName"));
 		newProposal.setLastName(rs.getString("lastName"));
 		newProposal.setDOB(rs.getString("DOB"));
 		newProposal.setEmail(rs.getString("email"));
-		newProposal.setContactNumber(rs.getInt("contactNumber"));
+		newProposal.setContactNumber(rs.getString("contactNumber"));
 		newProposal.setGender(rs.getString("gender"));
-		newProposal.setConsume(rs.getString("isConsume"));
+		newProposal.setConsume(rs.getString("consume"));
 		newProposal.setAnnualIncome(rs.getInt("annualIncome"));
 		newProposal.setPolicyType(rs.getString("policyType"));
 		newProposal.setAgeOfInsurance(rs.getString("ageOfInsurance"));
