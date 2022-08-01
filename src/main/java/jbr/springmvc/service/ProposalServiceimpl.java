@@ -27,5 +27,11 @@ public class ProposalServiceimpl implements ProposalService {
 		proposalDao.deleteNewProposals(id);
 		
 	}
+	
+	@Override
+	public void actionNewProposals(int id,String val) {
+		proposalDao.actionNewProposals(id,val);
+		
+	}
 
 }

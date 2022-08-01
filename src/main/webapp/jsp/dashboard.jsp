@@ -18,6 +18,10 @@
 
 
 <style>
+.btnspc {
+	margin-bottom: 5px;
+}
+
 button {
 	background-color: black
 }
@@ -28,13 +32,12 @@ a {
 }
 
 body {
-	border: 1px solid orange;
 	width: 100%;
 	height: 100vh;
 }
 
 .div1 {
-	width: 90%;
+	width: 100%;
 }
 </style>
 <title>Document</title>
@@ -42,7 +45,7 @@ body {
 
 <body class="h6">
 
-	<div class="container mt-5 div1">
+	<div class="mt-5">
 		<table class="table">
 			<thead class="thead-dark">
 				<tr>
@@ -56,7 +59,9 @@ body {
 					<th scope="col">annual income</th>
 					<th scope="col">policy type</th>
 					<th scope="col">age of insurance</th>
+					<th scope="col">status</th>
 					<th scope="col">Action</th>
+					<!-- 					<th scope="col">del Action</th> -->
 				</tr>
 			</thead>
 			<tbody>
@@ -74,14 +79,24 @@ body {
 						<td>&#x20B9; ${list.annualIncome }</td>
 						<td>${list.policyType }</td>
 						<td>${list.ageOfInsurance }</td>
+						<td>${list.action }</td>
 						<td>
-							<button data-toggle="tooltip">
-								<a href="delete/${list.id}">delete</a>
-							</button>
+
+							<div class="btn-group">
+								<a class="btn btn-primary dropdown-toggle" href="#"
+									role="button" id="dropdownMenuLink" data-toggle="dropdown"
+									aria-haspopup="true" aria-expanded="false">action </a>
+
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+									<a class="dropdown-item" href="accept/${list.id}">Accept</a> <a
+										class="dropdown-item" href="reject/${list.id}">Reject</a> <a
+										class="dropdown-item" href="delete/${list.id}">delete</a>
+								</div>
+							</div>
 						</td>
+					</tr>
 				</c:forEach>
 
-				</tr>
 			</tbody>
 		</table>
 

@@ -8,6 +8,10 @@ public interface ProposalService {
 	int register(newProposal newProposal);
 
 	List<newProposal> queryAllUser();
+	
 	void deleteNewProposals(int id);
+	
+	void actionNewProposals(int actionid,String val);
+	
 
 }

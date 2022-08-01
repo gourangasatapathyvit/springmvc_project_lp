@@ -22,12 +22,12 @@ public class ProposalDaoImpl implements ProposalDao {
 
 	@Override
 	public int register(newProposal newProposal) {
-		String sql = "insert into proposal(firstName,lastName,DOB,email,contactNumber,gender,consume,annualIncome,policyType,ageOfInsurance) values(?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into proposal(firstName,lastName,DOB,email,contactNumber,gender,consume,annualIncome,policyType,ageOfInsurance,action) values(?,?,?,?,?,?,?,?,?,?,?)";
 		return jdbcTemplate.update(sql,
 				new Object[] { newProposal.getFirstName(), newProposal.getLastName(), newProposal.getDOB(),
 						newProposal.getEmail(), newProposal.getContactNumber(), newProposal.getGender(),
 						newProposal.getConsume(), newProposal.getAnnualIncome(), newProposal.getPolicyType(),
-						newProposal.getAgeOfInsurance() });
+						newProposal.getAgeOfInsurance(), "pending" });
 
 	}
 
@@ -36,12 +36,25 @@ public class ProposalDaoImpl implements ProposalDao {
 		List<newProposal> newProposals = jdbcTemplate.query(sql, new newProposalMapper());
 		return newProposals;
 	}
-	
 
 	@Override
 	public void deleteNewProposals(int id) {
 		String sql = "DELETE FROM proposal WHERE id = ?";
 		jdbcTemplate.update(sql, id);
+	}
+
+	@Override
+	public void actionNewProposals(int actionid, String val) {
+		String sql = null;
+		if (val == "accept") {
+			sql = "UPDATE proposal SET action='acepted' WHERE id=?";
+		} else if (val == "reject") {
+			sql = "UPDATE proposal SET action='rejected' WHERE id=?";
+		} else {
+			sql = "DELETE FROM proposal WHERE id = ?";
+		}
+
+		jdbcTemplate.update(sql, actionid);
 	}
 
 }
@@ -61,6 +74,7 @@ class newProposalMapper implements RowMapper<newProposal> {
 		newProposal.setAnnualIncome(rs.getInt("annualIncome"));
 		newProposal.setPolicyType(rs.getString("policyType"));
 		newProposal.setAgeOfInsurance(rs.getString("ageOfInsurance"));
+		newProposal.setAction(rs.getString("action"));
 
 		return newProposal;
 	}

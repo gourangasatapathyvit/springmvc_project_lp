@@ -2,7 +2,6 @@ package jbr.springmvc.model;
 
 public class newProposal {
 	private int id;
-
 	private String firstName;
 	private String lastName;
 	private String DOB;
@@ -13,15 +12,15 @@ public class newProposal {
 	private int annualIncome;
 	private String policyType;
 	private String ageOfInsurance;
+	private String action;
 
 	public newProposal() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-
 	public newProposal(int id, String firstName, String lastName, String dOB, String email, String contactNumber,
-			String gender, String consume, int annualIncome, String policyType, String ageOfInsurance) {
+			String gender, String consume, int annualIncome, String policyType, String ageOfInsurance, String action) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -34,8 +33,16 @@ public class newProposal {
 		this.annualIncome = annualIncome;
 		this.policyType = policyType;
 		this.ageOfInsurance = ageOfInsurance;
+		this.action = action;
 	}
 
+	public String getAction() {
+		return action;
+	}
+
+	public void setAction(String action) {
+		this.action = action;
+	}
 
 	public int getId() {
 		return id;
@@ -130,7 +137,7 @@ public class newProposal {
 		return "newProposal [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", DOB=" + DOB
 				+ ", email=" + email + ", contactNumber=" + contactNumber + ", gender=" + gender + ", consume="
 				+ consume + ", annualIncome=" + annualIncome + ", policyType=" + policyType + ", ageOfInsurance="
-				+ ageOfInsurance + "]";
+				+ ageOfInsurance + ", action=" + action + "]";
 	}
 
 }
