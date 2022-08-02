@@ -74,20 +74,6 @@
 					</div>
 				</div>
 
-<!-- 				<div class="form-group mt-5">
-					<h3>Consume Tobaco</h3>
-					<div class="custom-control custom-radio custom-control-inline">
-						<input type="radio" id="customRadioInline11" name="isConsume"
-							class="custom-control-input form-control" value="yes"> <label
-							class="custom-control-label" for="customRadioInline12">yes</label>
-					</div>
-					<div class="custom-control custom-radio custom-control-inline">
-						<input type="radio" id="customRadioInline22" name="isConsume"
-							class="custom-control-input form-control" value="no">
-						<label class="custom-control-label" for="customRadioInline22">no</label>
-					</div>
-
-				</div> -->
 
 				<div class="form-group mt-5">
 					<h3>Consume Tobaco</h3>
