@@ -26,7 +26,7 @@ button {
 	background-color: black
 }
 
-a {
+a, a:hover {
 	color: white;
 	text-decoration: none;
 }
@@ -52,7 +52,7 @@ body {
 
 	<div class="mt-3">
 		<table class="table">
-			<thead class="thead-dark">
+			<thead class="bg-primary text-white">
 				<tr>
 					<th scope="col">first name</th>
 					<th scope="col">last name</th>
@@ -66,7 +66,6 @@ body {
 					<th scope="col">age of insurance</th>
 					<th scope="col">status</th>
 					<th scope="col">Action</th>
-					<!-- 					<th scope="col">del Action</th> -->
 				</tr>
 			</thead>
 			<tbody>

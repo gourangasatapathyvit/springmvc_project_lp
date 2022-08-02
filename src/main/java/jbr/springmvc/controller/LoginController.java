@@ -33,7 +33,6 @@ public class LoginController {
 
 		if (user != null) {
 			mav = new ModelAndView("maindashboard");
-			mav.addObject("firstname", user.getFirstname());
 		} else {
 			mav = new ModelAndView("login");
 			mav.addObject("message", "Username or Password is wrong!!");
