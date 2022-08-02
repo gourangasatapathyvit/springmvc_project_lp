@@ -44,8 +44,13 @@ body {
 </head>
 
 <body class="h6">
+	<div class="btnbox text-right mt-2">
+		<button type="button" class="btn btn-outline-danger">
+			<a class="text-dark text-decoration-none" href="home.jsp">Logout</a>
+		</button>
+	</div>
 
-	<div class="mt-5">
+	<div class="mt-3">
 		<table class="table">
 			<thead class="thead-dark">
 				<tr>
